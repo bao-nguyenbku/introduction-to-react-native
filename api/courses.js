@@ -29,6 +29,6 @@ export function getAllCourses() {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(course)
-    }, 1000)
+    }, 3000)
   })
 }

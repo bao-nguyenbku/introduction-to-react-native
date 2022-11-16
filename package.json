@@ -17,6 +17,7 @@
     "expo": "~46.0.13",
     "expo-status-bar": "~1.4.0",
     "expo-updates": "~0.14.6",
+    "lottie-react-native": "^5.1.4",
     "react": "18.0.0",
     "react-dom": "18.0.0",
     "react-native": "0.69.6",
@@ -28,7 +29,8 @@
     "typescript": "^4.6.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.9"
+    "@babel/core": "^7.12.9",
+    "@types/react-native-snap-carousel": "^3.8.5"
   },
   "private": true
 }
