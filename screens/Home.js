@@ -1,12 +1,12 @@
-import { StyleSheet, Text, View, TouchableOpacity, SafeAreaView, Animated } from 'react-native'
 import React, { useEffect } from 'react'
+import { StyleSheet, Text, View, TouchableOpacity, SafeAreaView, Animated } from 'react-native'
 import { getAllCourses } from '../api/blogs';
 import PickedListMonHoc from '../components/pickedListMonHoc';
 
 const Home = () => {
 
   useEffect(() =>{
-    getAllCourses().then(result => console.log(result));
+    getAllCourses().then(result => {});
   }, []);
 
   return (
