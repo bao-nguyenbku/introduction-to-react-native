@@ -14,6 +14,11 @@ function Index(props) {
                 autoPlay={false}
                 data={courses}
                 scrollAnimationDuration={1000}
+                mode='parallax'
+                modeConfig={{
+                    parallaxScrollingScale: 0.9,
+                    parallaxScrollingOffset: 50
+                }}
                 // onSnapToItem={(index) => console.log('current index:', index)}
                 panGestureHandlerProps={{
                   activeOffsetX: [-10, 10],
@@ -22,12 +27,13 @@ function Index(props) {
                     <TouchableOpacity
                         style={{
                             flex: 1,
-                            borderWidth: 1,
+                            backgroundColor: '#0284C7',
+                            borderRadius: 12,
                             justifyContent: 'center',
                         }}
                         onPress={() => addCourse(item)}
                     >
-                        <Text style={{ textAlign: 'center', fontSize: 30 }}>
+                        <Text style={{ textAlign: 'center', fontSize: 30, color: '#fff' }}>
                             {item.name}
                         </Text>
                     </TouchableOpacity>

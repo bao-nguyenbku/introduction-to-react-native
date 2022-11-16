@@ -10,6 +10,7 @@ import Home from './screens/Home';
 export default function App() {
   return (
     <Provider store={store}>
+      <StatusBar style='auto'/>
       <Home />
     </Provider>
   );
