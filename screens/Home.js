@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity, SafeAreaView } from 'react-native'
 import React, { useEffect } from 'react'
 import { getAllCourses } from '../api/blogs';
 import PickedListMonHoc from '../components/pickedListMonHoc';
@@ -10,14 +10,17 @@ const Home = () => {
   }, []);
 
   return (
-    <View style={styles.container}> 
+    <SafeAreaView style={styles.container}> 
       <PickedListMonHoc />
-    </View>
+    </SafeAreaView>
   );
 }
 
 export default Home
 
 const styles = StyleSheet.create({
-  
+    container: {
+      paddingTop: 120,
+    }
+
 })
