@@ -4,7 +4,7 @@ import { getAllCourses } from '../api/blogs';
 import PickedListMonHoc from '../components/pickedListMonHoc';
 
 const Home = () => {
-  
+
   useEffect(() =>{
     getAllCourses().then(result => console.log(result));
   }, []);

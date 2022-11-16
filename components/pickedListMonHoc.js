@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ScrollView } from "react-native";
+import { ScrollView, TouchableOpacity, View, StyleSheet, Text } from "react-native";
 
 const course = [
     {
@@ -39,9 +39,33 @@ const PickedListMonHoc = (props) => {
                 <Text>{item.id}</Text>
             </View>)
         })}
+
+        <TouchableOpacity onPress={() => {}}>
+          <View style={styles.button}>
+            <Text style={styles.buttonText}>TouchableOpacity</Text>
+          </View>
+        </TouchableOpacity>
         
     </ScrollView>)
     
 }
+
+const styles = StyleSheet.create({
+    container: {
+      paddingTop: 60,
+      alignItems: 'center'
+    },
+    button: {
+      marginBottom: 30,
+      width: 260,
+      alignItems: 'center',
+      backgroundColor: '#2196F3'
+    },
+    buttonText: {
+      textAlign: 'center',
+      padding: 20,
+      color: 'white'
+    }
+  });
 
 export default PickedListMonHoc;
