@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ScrollView, TouchableOpacity, View, StyleSheet, Text, SafeAreaView, Button, FlatList } from 'react-native';
-import Swipeable from 'react-native-gesture-handler/Swipeable';
+import { Feather } from '@expo/vector-icons';
 
 const course = [
     {
@@ -31,90 +31,42 @@ const course = [
 
 const PickedListMonHoc = (props) => {
     const [pickedList, setPickedList] = useState([...course]);
-    let row = [];
-    let prevOpenedRow;
-
-    const deleteItem = ({ item, index }) => {
-        console.log(item, index);
-        let a = listData;
-        a.splice(index, 1);
-        console.log(a);
-        setPickedList([...a]);
-    };
-
-    const renderItem = ({ item, index }, onClick) => {
-        //
-        const closeRow = (index) => {
-            console.log('closerow');
-            if (prevOpenedRow && prevOpenedRow !== row[index]) {
-                prevOpenedRow.close();
-            }
-            prevOpenedRow = row[index];
-        };
-
-        const renderRightActions = (progress, dragX, onClick) => {
-            return (
-                <View
-                    style={{
-                        margin: 0,
-                        alignContent: 'center',
-                        justifyContent: 'center',
-                        width: 70
-                    }}
-                >
-                    <Button color='red' onPress={onClick} title='DELETE'></Button>
-                </View>
-            );
-        };
-
-        return (
-            <Swipeable renderRightActions={(progress, dragX) => renderRightActions(progress, dragX, onClick)} onSwipeableOpen={() => closeRow(index)} ref={(ref) => (row[index] = ref)} rightOpenValue={-100}>
-                <View
-                    style={{
-                        margin: 4,
-                        borderColor: 'grey',
-                        borderWidth: 1,
-                        padding: 9,
-                        backgroundColor: 'white'
-                    }}
-                >
-                    <Text>{item.name}</Text>
-                </View>
-            </Swipeable>
-        );
-    };
 
     return (
-        <SafeAreaView>
-            <FlatList
-                data={pickedList}
-                renderItem={(v) =>
-                    renderItem(v, () => {
-                        console.log('Pressed', v);
-                        deleteItem(v);
-                    })
-                }
-                keyExtractor={(item) => item.id}
-            ></FlatList>
+        <SafeAreaView style={styles.container}>
+            <ScrollView>
+                {pickedList.map((item) => {
+                    return (
+                        <View key={item.id} style={styles.courseContainer}>
+                            <Text>{item.name}</Text>
+                            <View style={styles.courseContainerAlignRight}>
+                                <TouchableOpacity onPress={() => {}}>
+                                    <Feather name='trash-2' size={24} color='black' />
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                    );
+                })}
+            </ScrollView>
         </SafeAreaView>
     );
 };
 
 const styles = StyleSheet.create({
     container: {
-        paddingTop: 60,
-        alignItems: 'center'
+        padding: 12
     },
-    button: {
-        marginBottom: 30,
-        width: 260,
-        alignItems: 'center',
-        backgroundColor: '#2196F3'
+    courseContainer: {
+        marginBottom: 12,
+        justifyContent: 'space-between',
+        padding: 12,
+        borderColor: 'gray',
+        borderWidth: 1,
+        width: '100%',
+        flexDirection: 'row'
     },
-    buttonText: {
-        textAlign: 'center',
-        padding: 20,
-        color: 'white'
+    courseContainerAlignRight: {
+        alignContent: 'flex-end'
     }
 });
 
